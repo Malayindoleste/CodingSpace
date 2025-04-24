@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyStoreLite Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-left: 5px solid #666;
+            overflow-x: auto;
+        }
+        section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(1,0,0,0.7);
+        }
+
+        #copyrightText {
+          color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>KeyStoreLite - Official Documentation</h1><section>
+    <h2>Introduction</h2>
+    <p>KeyStoreLite is a simple key-value storage library for Java that works similarly to <strong>localStorage and sessionStorage</strong> in JavaScript. Data is stored in JSON files in internal or external storage, with a very easy-to-use interface.</p>
+</section>
+
+<section>
+    <h2>How to Use</h2>
+    <p>Add <code>KeyStoreLite1.1.0-beta.jar</code> to your project's <code>libs/</code> folder, then import the classes:</p>
+    <pre><code>import keystore.external.local.Store;
+import keystore.internal.local.Store;
+import keystore.session.store.Session;</code></pre>
+    <p>After importing, initialize KeyStoreLite first using the method:</p>
+    <pre><code>Store.init(this);
+Session.init(this);</code></pre>
+    <p>Example of creating a new file:</p>
+    <pre><code>Store.createFile("user_data.json");</code></pre>
+
+    <p>Example of adding an item:</p>
+    <pre><code>Store.addString("level", "10", "user_data.json");
+Session.addString("sessionToken", "is_login");</code></pre>
+
+    <p>Example of reading an item:</p>
+    <pre><code>String level = Store.getString("level", "user_data.json");
+String sessionToken = Session.getString("sessionToken");</code></pre>
+</section>
+
+<section>
+  <h1>Complete Methods</h1>
+  <p>To add data.</p>
+  <pre><code>Store.addString(key, value, destinationFile);
+Store.addInt(key, int, destinationFile);
+Store.addBoolean(key, boolean, destinationFile);
+
+Session.addString(key, value);
+Session.addInt(key, int);
+Session.addBoolean(key, boolean);</code></pre>
+<p>To read data.</p>
+<pre><code>Store.getString(key, destinationFile);
+Store.getInt(key, destinationFile);
+Store.getBoolean(key, destinationFile);
+
+Session.getString(key);
+Session.getInt(key);
+Session.getBoolean(key);</code></pre>
+<p>To delete data.</p>
+<pre><code>Store.delete(key, destinationFile);
+Session.remove(key);</code></pre>
+<p>To clear all stored data.</p>
+<pre><code>Store.clearFile(targetFile);
+Session.clearSession();</code></pre>
+</section>
+
+<section>
+<h1>Class function</h1>
+<pre><code>import keystore.external.local.store.Store;</code></pre>
+<p>This class functions to save data to external storage</p>
+<p>/sdcard (or storage/emulated/0/)/Android/data
+/package.name/files/</p>
+
+<pre><code>import keystore.internal.local.store.Store;</code></pre>
+<p>This class functions to save data to internal storage</p>
+<p>/data/data/package.name/files/</p>
+
+<pre><code>keystore.session.store.Session;</code></pre>
+<p>This class functions to save data to memory</p>
+<p>Will be deleted if the application is closed</p>
+</section>
+
+<section>
+  <h1>Notes</h1>
+  <p>If a file is deleted using <code>clearFile()</code>, it cannot be recovered (but can be recreated empty).</p>
+  <p>Data stored in Session.class will be automatically deleted when the app is closed or when the system needs memory.</p>
+  <p>To see the KeyStoreLite specifications, can visit <a href="Specification.html">KeyStoreLite Specifications</a>
+  <p>KeyStoreLite is not suitable for large-scale applications.</p>
+</section>
+
+<section>
+    <h2>ChangeLog</h2>
+    <ul>
+        <li><strong>v1.1.0</strong> - Initial release of KeyStoreLite</li>
+    </ul>
+</section>
+
+<section>
+  <h1>Download the Jar File</h1>
+  <a href="https://raw.githubusercontent.com/Malayindoleste/CodingSpace/main/KeyStoreLite1.1.0-beta.jar" download="KeyStoreLite1.1.0-beta.jar">Download the jar file here.</a>
+</section>
+</body>
+</html>

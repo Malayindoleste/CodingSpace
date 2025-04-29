@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Update1</title>
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-left: 5px solid #666;
+            overflow-x: auto;
+        }
+        section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(1,0,0,0.7);
+        }
+    </style>
+</head>
+<body>
+  <h1>KeyStoreLite Update 1.2.0</h1>
+  
+  <section>
+    <h2>KeyStoreLite update</h2>
+    <p>We have added support for storing data in array form. Arrays will be stored in .ary files, but the format will remain as json.</p>
+  </section>
+  
+  <section>
+    <h2>How to use</h2>
+    <p>Import the class first.</p>
+    <pre><code>import keystore.array.external.AryStore;
+import keystore.array.internal.AryStore;</code></pre>
+    <p>After importing the class, initialize it first.</p>
+    <pre><code>AryStore.init(this);</code></pre>
+    <p>Then activate the array.</p>
+    <pre><code>AryStore.setArray("user_data");</code></pre>
+    <p>Once these three steps are complete, you can save, read, and delete data from the array.</p>
+    <p>Example of storing data at index 0.</p>
+    <pre><code>AryStore.addString("Hello world!", 0);</code></pre>
+    <p>Example of reading data from a specific index.</p>
+    <pre><code>AryStore.getString(0):</code></pre>
+    <p>Example of deleting data from a specific index.</p>
+    <pre><code>AryStore.remove(0)</code></pre>
+    <p>To clear the array.</p>
+    <pre><code>AryStore.clear();</code></pre>
+  </section> 
+  
+  <section>
+    <h2>Complete method</h2>
+    <p>To save data.</p>
+    <pre><code>AryStore.addString(value, index);
+AryStore.addInt(value, index);
+AryStore.addBoolean(value, index);</code></pre>
+    <p>To read data.</p>
+    <pre><code>AryStore.getString(index);
+AryStore.getInt(index);
+AryStore.getBoolean(index);</code></pre>
+    <p>To read all data</p>
+    <pre><code>AryStore.getAllString(startIndex, endIndex);</code></pre>
+    <p>To delete data.</p>
+    <pre><code>AryStore.remove(index);</code></pre>
+    <p>To clear the array.</p>
+    <pre><code>AryStore.clear();</code></pre>
+  </section>
+  
+  <section>
+    <h2>Notes</h2>
+    <p>.ary files can only store arrays up to 30 indexes. If the limit is exceeded, KeyStoreLite refuses to store new data.</p>
+    <p>.ary files can only be created once. If setArray() is called twice with different parameters, the second array cannot be created or activated. But the old array must be activated in another activity (if you work on android).</p>
+    <p>If you skip the index directly, an empty index will be assigned a default value ("").</p>
+    <p>The "startIndex" and "endIndex" parameters are parameters used to read data from a certain index to a certain index (for example, reading data from index 0 to index 3, data stored at index 3 and above will be ignored). Make sure the method to read all data is called on String[]/int[]/boolean[] array = AryStore.getAllString/Int/Boolean()</p>
+  </section> 
+  
+  <section>
+    <h2>Download jar file</h2>
+    <a href="https://raw.githubusercontent.com/Malayindoleste/CodingSpace/main/KeyStoreLite1.2.0.jar" download="KeyStoreLite1.2.0.jar">Download the jar file here</a>
+  </section> 
+</body>
+</html>

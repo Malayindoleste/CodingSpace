@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Update4</title>
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-left: 5px solid #666;
+            overflow-x: auto;
+        }
+        section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(1,0,0,0.7);
+        }
+    </style>
+</head>
+<body>
+  <h1>KeyStoreLite Update 1.4.0</h1>
+  
+  <section>
+  <p>Now you can manage data that is in different files at one time. Just like Array, you simply create an instance of the Store class object to use its methods.</p>
+  <pre><code>Store user_data = new Store(this, "user_data");
+user_data.addString(key, value);
+user_data.addBoolean(key, value);
+user_data.addInt(key, value);
+user_data.addFloat(key, value);
+
+user_data.getString(key);
+user_data.getBoolean(key);
+user_data.getInt(key);
+user_data.getFloat(key);</code></pre>
+
+  <p>For methods like <code>createFile()</code>, you no longer need that method because the file will be automatically created when you create the Store object.</p>
+  <pre><code>user_data.createFile(filename); // This is no longer necessary
+user_data.delete(key);
+user_data.clearFile(); // No need to mention the file name</code></pre>
+  </section>
+  
+  <section>
+    <h2>Download jar file</h2>
+    <a href="https://raw.githubusercontent.com/Malayindoleste/CodingSpace/main/KeyStoreLite1.4.0.jar">Download the jar file here</a>
+  </section> 
+</body>
+</html>
